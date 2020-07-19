@@ -1,10 +1,10 @@
 <template>
-  <div class="alipay">alipay</div>
+  <div class="order-confirm"></div>
 </template>
 
 <script>
 export default {
-  name: 'alipay'
+  name: 'order-confirm'
 }
 </script>
 
