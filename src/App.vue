@@ -5,11 +5,8 @@
 </template>
 
 <script>
-import storage from './storage'
 export default {
-  mounted () {
-    storage.setItem('a', 1)
-    // storage.getItem('a')
+  async created () {
   }
 }
 </script>
