@@ -1,6 +1,17 @@
 <template>
   <div class="index">
     <div class="container">
+      <div class="nav-menu">
+        <ul class="menu-wrap">
+          <li class="menu-item">
+            <a href="javascript:;">手机 电话卡</a>
+            <div class=""></div>children
+          </li>
+          <li class="menu-item">
+            <a href="javascript:;">手机 电话卡</a>
+          </li>
+        </ul>
+      </div>
       <div class="ads-box">
         <swiper :options="swiperOption">
           <swiper-slide v-for="item in slideList" :key="item.id">
