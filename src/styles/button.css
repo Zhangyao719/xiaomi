@@ -1,0 +1,35 @@
+/*
+  样式规范表
+*/
+.btn {
+  display: inline-block;
+  width: 110px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #FF6600 !important;
+  color: #ffffff !important;
+  border: none;
+  cursor: pointer;
+}
+.btn-default {
+  background-color: #b0b0b0;
+  color: #ffffff !important;
+}
+.btn-large {
+  width: 202px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 18px;
+}
+.btn-huge {
+  width: 300px;
+  height: 54px;
+  line-height: 54;
+  font-size: 16px;
+}
+.btn-group .btn {
+  margin-right: 20px;
+}
+.btn-group .btn:last-child {
+  margin-right: 0;
+}

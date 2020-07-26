@@ -5,9 +5,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import ServiveBar from './components/ServiceBar.vue'
-import './styles/reset.less'
-import './styles/base.less'
-import './styles/config.less'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 // require styles
