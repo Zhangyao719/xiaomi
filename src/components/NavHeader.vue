@@ -13,7 +13,7 @@
           <a href="javascript:;" v-if="!username" @click="$router.push('/login')">登录</a>
           <a href="javascript:;" v-else @click="logout">退出</a>
           <a href="/#/order/list" v-if="username" >我的订单</a>
-          <a href="javascript:;" class="my-cart" @click="$router.push('/cart')"><span class="icon-cart"></span>购物车</a>
+          <a href="javascript:;" class="my-cart" @click="$router.push('/cart')"><span class="icon-cart"></span>购物车 ({{ cartCount }})</a>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@
               <ul>
                 <li class="product" v-for="item in phoneList" :key="item.id">
                   <a :href="'/#/product/'+item.id"  target="_blank">
-                    <div class="pro-img"><img :src="item.mainImage" :alt="item.subtitle"></div>
+                    <div class="pro-img"><img v-lazy="item.mainImage" :alt="item.subtitle"></div>
                     <div class="pro-name">{{item.name}}</div>
                     <div class="pro-price">{{item.price | currency}}</div>
                   </a>
@@ -42,42 +42,42 @@
               <ul>
                 <li class="product">
                   <a href="javascript:;"  target="_blank">
-                    <div class="pro-img"><img src="../../public/imgs/nav-img/nav-3-1.jpg" alt=""></div>
+                    <div class="pro-img"><img v-lazy="'/imgs/nav-img/nav-3-1.jpg'" alt=""></div>
                     <div class="pro-name">123</div>
                     <div class="pro-price">1234</div>
                   </a>
                 </li>
                 <li class="product">
                   <a href="javascript:;"  target="_blank">
-                    <div class="pro-img"><img src="../../public/imgs/nav-img/nav-3-2.jpg" alt=""></div>
+                    <div class="pro-img"><img v-lazy="'/imgs/nav-img/nav-3-2.jpg'" alt=""></div>
                     <div class="pro-name">123</div>
                     <div class="pro-price">1234</div>
                   </a>
                 </li>
                 <li class="product">
                   <a href="javascript:;"  target="_blank">
-                    <div class="pro-img"><img src="../../public/imgs/nav-img/nav-3-3.png" alt=""></div>
+                    <div class="pro-img"><img v-lazy="'/imgs/nav-img/nav-3-3.png'" alt=""></div>
                     <div class="pro-name">123</div>
                     <div class="pro-price">1234</div>
                   </a>
                 </li>
                 <li class="product">
                   <a href="javascript:;"  target="_blank">
-                    <div class="pro-img"><img src="../../public/imgs/nav-img/nav-3-4.jpg" alt=""></div>
+                    <div class="pro-img"><img v-lazy="'/imgs/nav-img/nav-3-4.jpg'" alt=""></div>
                     <div class="pro-name">123</div>
                     <div class="pro-price">1234</div>
                   </a>
                 </li>
                 <li class="product">
                   <a href="javascript:;"  target="_blank">
-                    <div class="pro-img"><img src="../../public/imgs/nav-img/nav-3-5.jpg" alt=""></div>
+                    <div class="pro-img"><img v-lazy="'../imgs/nav-img/nav-3-5.jpg'" alt=""></div>
                     <div class="pro-name">123</div>
                     <div class="pro-price">1234</div>
                   </a>
                 </li>
                 <li class="product">
                   <a href="javascript:;"  target="_blank">
-                    <div class="pro-img"><img src="../../public/imgs/nav-img/nav-3-6.png" alt=""></div>
+                    <div class="pro-img"><img v-lazy="'../imgs/nav-img/nav-3-6.png'" alt=""></div>
                     <div class="pro-name">123</div>
                     <div class="pro-price">1234</div>
                   </a>
@@ -98,12 +98,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'nav-header',
   data () {
     return {
-      phoneList: [],
-      username: ''
+      phoneList: []
     }
   },
   created () {
@@ -128,6 +128,15 @@ export default {
     },
     logout () {
     }
+  },
+  computed: {
+    // username () {
+    //   return this.$store.state.username
+    // },
+    // cartCount () {
+    //   return this.$store.state.cartCount
+    // }
+    ...mapState(['username', 'cartCount'])
   }
 }
 </script>
